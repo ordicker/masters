@@ -1,0 +1,124 @@
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:nil todo:t |:t
+#+title: hw1
+#+author: Or Dicker 200680536
+#+email: or.dicker@gmail.com
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 27.1 (Org mode 9.3)
+#+LATEX_CLASS_OPTIONS: [a4paper]
+#+LATEX_HEADER: \usepackage{amsmath}
+
+* Q1 
+** a
+Kleinman symmetry claims that $$\chi_{ijk}=\chi_{jki} (1) $$
+and notation transformation $$d_{il}=0.5\cdot\chi_{ijk}(2)$$ table:
+| jk    | l |
+|-------+---|
+| 11    | 1 |
+| 22    | 2 |
+| 33    | 3 |
+| 23,32 | 4 |
+| 31,13 | 5 |
+| 12,21 | 6 |
+
+$$d_{21} =_{(2)} 0.5\chi_{211} =_{(1)} 0.5\chi_{121} =_{(2)} d_{16}$$
+$$d_{14} =_{(2)} 0.5\chi_{123} =_{(1)} 0.5\chi_{231} =_{(2)} d_{25}$$
+$$d_{12} =_{(2)} 0.5\chi_{122} =_{(1)} 0.5\chi_{221} =_{(2)} d_{26}$$
+$$d_{15} =_{(2)} 0.5\chi_{131} =_{(1)} 0.5\chi_{311} =_{(2)} d_{31}$$
+$$d_{24} =_{(2)} 0.5\chi_{232} =_{(1)} 0.5\chi_{322} =_{(2)} d_{32}$$
+$$d_{23} =_{(2)} 0.5\chi_{233} =_{(1)} 0.5\chi_{332} =_{(2)} d_{34}$$
+$$d_{13} =_{(2)} 0.5\chi_{133} =_{(1)} 0.5\chi_{331} =_{(2)} d_{35}$$
+$$d_{14} =_{(2)} 0.5\chi_{132} =_{(1)} 0.5\chi_{321} =_{(2)} d_{36}$$
+** b
+$$ d = 
+\begin{bmatrix}
+ 0 & 0 & 0 & 0 & d_{31} & -d_{22}\\
+-d_{22} & d_{22} & 0 & d_{31} & 0 & 0 \\
+d_{31} & d_{31} & d_{d33} & 0 & 0 & 0
+\end{bmatrix} $$
+
+in the following Q $\omega = \omega_{1} = \omega_{2}$, therefore $\omega_{3}=2\omega$.
+
+$$ \begin{bmatrix} P_{x}(2\omega) \\ 
+                   P_{y}(2\omega) \\
+                   P_{z}(2\omega) \end{bmatrix}  = 
+2\varepsilon_{0}d 
+\begin{bmatrix} E_{x}^{2}(\omega) \\
+                  E_{y}^{2}(\omega) \\
+		  E_{z}^{2}(\omega) \\
+		  2E_{y}(\omega)E_{z}(\omega) \\
+		  2E_{x}(\omega)E_{z}(\omega) \\
+		  2E_{x}(\omega)E_{y}(\omega) \end{bmatrix}$$
+*** $\hat{x}$
+$$P_{x}(2\omega) = 0$$
+$$P_{y}(2\omega) = -2\varepsilon_{0}d_{22}E_{x}^{2}$$
+$$P_{z}(2\omega) = 2\varepsilon_{0}d_{31}E_{x}^{2}$$
+*** $\hat{y}$
+$$P_{x}(2\omega) = 0$$
+$$P_{y}(2\omega) = 2\varepsilon_{0}d_{22}E_{y}^{2}$$
+$$P_{z}(2\omega) = 2\varepsilon_{0}d_{31}E_{y}^{2}$$
+*** $\hat{z}$
+$$P_{x}(2\omega) = 0$$
+$$P_{y}(2\omega) = 0$$
+$$P_{z}(2\omega) = 2\varepsilon_{0}d_{33}E_{z}^{2}$$
+*** most general case 
+$$P_{x}(2\omega) = 2\varepsilon_{0}(2d_{31}E_{x}E_{z}-2d_{22}E_{x}E_{y})$$
+$$P_{y}(2\omega) = 2\varepsilon_{0}(-d_{22}E_{x}^{2}+d_{22}E_{y}^{2}+2d_{31}E_{y}E_{z})$$
+$$P_{z}(2\omega) = 2\varepsilon_{0}(d_{31}E_{x}^{2}+d_{31}E_{y}^{2}+d_{33}E_{z}^{2})$$
+*** $E = \hat{x}E_{0} - \hat{y}E_{0}$
+plug it to the general case yields
+$$P_{x}(2\omega) = 4\varepsilon_{0}d_{22}E_{0}E_{0}$$
+$$P_{y}(2\omega) = 2\varepsilon_{0}(-d_{22}E_{0}^{2}+d_{22}E_{0}^{2}) = 0$$
+$$P_{z}(2\omega) = 2\varepsilon_{0}(d_{31}E_{0}^{2}+d_{31}E_{0}^{2})$$
+
+* Q2
+This always holds $k(\omega) = \frac{\omega}{c}n(\omega)$ or $k(\lambda) = \frac{2\pi}{\lambda}n(\lambda)$
+$\omega = \frac{c}{2\pi\lambda}$  (where c is the speed of light in vacuum)
+thus, second harmonic generation missmatch is $\Delta k = k(2\omega)-2k(\omega)$ or $\Delta k = k(\lambda/2)-2k(\lambda)$. 
+
+$$ \Delta k(\lambda) =  \frac{4\pi}{\lambda}n(\lambda/2)-\frac{4\pi}{\lambda}n(\lambda) = \frac{4\pi}{\lambda}(n(\lambda/2)-n(\lambda))$$
+$$n_{z}^{(2)}(\lambda)=4.59423+\frac{0.06206}{\lambda^{2}-0.04763}+\frac{110.80672}{\lambda^{2}-86.12171}$$
+
+
+#+NAME: Q2
+#+begin_src python :results file
+import matplotlib
+import numpy as np
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+fig=plt.figure(figsize=(4,2))
+x=np.linspace(0.8,5.0,1000)
+n = lambda l: 4.59423+0.06206/(l**2-0.04763)+110.80672/(l**2-86.12171)
+plt.plot(x,4*np.pi/x*(n(x/2)-n(x)))
+plt.xlabel("Pump $\lambda$[$\mu$m]")
+plt.ylabel("$\Delta$k[Mm]")
+
+fig.tight_layout()
+plt.savefig('images/q2.png')
+return 'images/q2.png' 
+#+end_src
+
+#+RESULTS: Q2
+#+ATTR_LATEX: :options frame=single
+[[file:images/q2.png]]
+
+
+* Q3
+** a 
+$$n_{z}^{(2)}(\lambda)=4.59423+\frac{0.06206}{\lambda^{2}-0.04763}+\frac{110.80672}{\lambda^{2}-86.12171}$$
+using the hint yields $\chi^{(1)} = \sqrt{n^{2}(\lambda)-1}$. susceptibility using the modified Lorentz model gives 
+$$\chi^{(2)}(2\omega,\omega,\omega) = \frac{\varepsilon^{2}_{0}ma}{N^{2}e^{3}}\chi^{(1)}(2\omega)[\chi^{(1)}(\omega)]^{2} $$
+
+
+** b 
+$$\frac{\chi^{(2)}(2\omega,\omega,\omega)}{\chi^{(1)}(2\omega)[\chi^{(1)}(\omega)]^{2}} $$
+plug in the the modified Lorentz model 
+$$\chi^{(2)}(2\omega,\omega,\omega) = \frac{\varepsilon^{2}_{0}ma}{N^{2}e^{3}}\chi^{(1)}(2\omega)[\chi^{(1)}(\omega)]^{2} $$
+gives $\frac{\varepsilon^{2}_{0}ma}{N^{2}e^{3}}$, so if $a$ is about the same in all the non-centrosymmetric materials than we got a constant.
+** c
+
