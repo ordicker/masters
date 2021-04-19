@@ -107,13 +107,11 @@ return 'images/q2.png'
 #+ATTR_LATEX: :options frame=single
 [[file:images/q2.png]]
 
-
 * Q3
 ** a 
 $$n_{z}^{(2)}(\lambda)=4.59423+\frac{0.06206}{\lambda^{2}-0.04763}+\frac{110.80672}{\lambda^{2}-86.12171}$$
 using the hint yields $\chi^{(1)} = \sqrt{n^{2}(\lambda)-1}$. susceptibility using the modified Lorentz model gives 
 $$\chi^{(2)}(2\omega,\omega,\omega) = \frac{\varepsilon^{2}_{0}ma}{N^{2}e^{3}}\chi^{(1)}(2\omega)[\chi^{(1)}(\omega)]^{2} $$
-
 
 ** b 
 $$\frac{\chi^{(2)}(2\omega,\omega,\omega)}{\chi^{(1)}(2\omega)[\chi^{(1)}(\omega)]^{2}} $$
@@ -121,4 +119,54 @@ plug in the the modified Lorentz model
 $$\chi^{(2)}(2\omega,\omega,\omega) = \frac{\varepsilon^{2}_{0}ma}{N^{2}e^{3}}\chi^{(1)}(2\omega)[\chi^{(1)}(\omega)]^{2} $$
 gives $\frac{\varepsilon^{2}_{0}ma}{N^{2}e^{3}}$, so if $a$ is about the same in all the non-centrosymmetric materials than we got a constant.
 ** c
+for $\eta = 1\%$ we can use the non-depletion approximation which yields
+$$ I_{2w} = \frac{2d^{2}(2\omega)^{2}I_{\omega}^{2}}{n_{w}^{2}n_{2w}\epsilon_{0}c^{3}} $$
+$$ \frac{\eta_{4\mu m}}{\eta_{1.046\mu m}} = \frac{I_{2\mu m}}{I_{0.532\mu m}} $$ 
+same pump intensity, then we substitute the 2 equations. 
+$$  \frac{\eta_{4\mu m}}{\eta_{1.046\mu m}} = 
+\frac{
+  \frac{d_{4\mu m}^{2}\omega_{4\mu m}^{2}}{n_{4\mu m}^{2} n_{2\mu m}}
+}{
+  \frac{d_{1.046\mu m}^{2}\omega_{1.046\mu m}^{2}}{n_{1.046\mu m}^{2} n_{0.532\mu m}}
+} =
+\frac{d_{4\mu m}^{2}}{d_{1.046\mu m}^{2}} 
+\frac{\omega_{4\mu m}^{2}}{\omega_{1.046\mu m}^{2}} 
+\frac{n_{1.046\mu m}^{2} n_{0.532\mu m}}{n_{4\mu m}^{2} n_{2\mu m}}$$
+* Q4
+first we will find the relation in hint c. 
+$$ \frac{A}{\omega^{2}_{0}-\omega} = 
+\frac{A}{(\frac{2\pi c}{\lambda_{0}})^{2}- (\frac{2\pi c}{\lambda})^{2}} =
+\frac{A}{(2\pi c)^{2}} \frac{1}{\frac{\lambda^{2}-\lambda_{0}^{2}}{\lambda_{0}^{2}\lambda^{2}}} = 
+\frac{A\lambda_{0}^{2}}{(2\pi c)^{2}}\frac{\lambda^{2}}{\lambda^{2}-\lambda_{0}^{2}} =
+\frac{A\lambda_{0}^{2}}{(2\pi c)^{2}}\frac{\lambda^{2}-\lambda_{0}^{2}+\lambda_{0}^{2}}{\lambda^{2}-\lambda_{0}^{2}}
+$$
+$$
+\frac{A\lambda_{0}^{2}}{(2\pi c)^{2}} + \frac{A\lambda_{0}^{4}}{(2\pi c)^{2}} \frac{1}{\lambda^{2}-\lambda_{0}^{2}}
+$$
+yields, 
+$$ B = \frac{A\lambda_{0}^{2}}{(2\pi c)^{2}} $$
+$$ D = \frac{A\lambda_{0}^{4}}{(2\pi c)^{2}} $$
+
+Back to the question. Assume $n(w)$ has two resonances. 
+$$ n(w) = \frac{A_{1}}{\omega^{2}_{1}-\omega} + \frac{A_{1}}{\omega^{2}_{2}-\omega} $$
+Using the hint.
+$$
+n(w) =  \frac{A\lambda_{1}^{2}}{(2\pi c)^{2}} + \frac{A\lambda_{2}^{2}}{(2\pi c)^{2}} +
+\frac{A\lambda_{1}^{4}}{(2\pi c)^{2}} \frac{1}{\lambda^{2}-\lambda_{1}^{2}} +
+\frac{A\lambda_{2}^{4}}{(2\pi c)^{2}} \frac{1}{\lambda^{2}-\lambda_{2}^{2}}
+$$
+And we got the same functional relation as in Q2.
+* Q5
+** a 
+For the non-critical phase matching $\theta = 0$ or $\theta = \frac{\pi}{2}$. 
+The pump should be polorized along ordinary axis (1,2) and the second harmonic should be along the extra ordinary axis(3).
+The tensor coefficients are $d_{311}=d_{31}$, $d_{322}=d_{32}$, $d_{312}=d_{321}=d_{36}$.
+** b 
+????
+** c 
+$$ \Lambda = \frac{2\pi m}{\Delta k} = \frac{2\pi m}{\frac{4\pi}{\lambda}(n_{e}(\lambda/2)-n_{e}(\lambda))} =  \frac{2\cdot 10^{-6}m}{4(2.2365-2.145)} = 5.46\cdot m [\mu m] $$
+for $m \in {1,2,3...}$
+
+
+
 
