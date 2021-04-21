@@ -82,7 +82,7 @@ $\omega = \frac{c}{2\pi\lambda}$  (where c is the speed of light in vacuum)
 thus, second harmonic generation missmatch is $\Delta k = k(2\omega)-2k(\omega)$ or $\Delta k = k(\lambda/2)-2k(\lambda)$. 
 
 $$ \Delta k(\lambda) =  \frac{4\pi}{\lambda}n(\lambda/2)-\frac{4\pi}{\lambda}n(\lambda) = \frac{4\pi}{\lambda}(n(\lambda/2)-n(\lambda))$$
-$$n_{z}^{(2)}(\lambda)=4.59423+\frac{0.06206}{\lambda^{2}-0.04763}+\frac{110.80672}{\lambda^{2}-86.12171}$$
+$$n_{z}^{2}(\lambda)=4.59423+\frac{0.06206}{\lambda^{2}-0.04763}+\frac{110.80672}{\lambda^{2}-86.12171}$$
 
 
 #+NAME: Q2
@@ -93,7 +93,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 fig=plt.figure(figsize=(4,2))
 x=np.linspace(0.8,5.0,1000)
-n = lambda l: 4.59423+0.06206/(l**2-0.04763)+110.80672/(l**2-86.12171)
+n = lambda l: np.sqrt(4.59423+0.06206/(l**2-0.04763)+110.80672/(l**2-86.12171))
 plt.plot(x,4*np.pi/x*(n(x/2)-n(x)))
 plt.xlabel("Pump $\lambda$[$\mu$m]")
 plt.ylabel("$\Delta$k[Mm]")
@@ -125,14 +125,23 @@ $$ \frac{\eta_{4\mu m}}{\eta_{1.046\mu m}} = \frac{I_{2\mu m}}{I_{0.532\mu m}} $
 same pump intensity, then we substitute the 2 equations. 
 $$  \frac{\eta_{4\mu m}}{\eta_{1.046\mu m}} = 
 \frac{
-  \frac{d_{4\mu m}^{2}\omega_{4\mu m}^{2}}{n_{4\mu m}^{2} n_{2\mu m}}
+  \frac{d^{2}\omega_{4\mu m}^{2}}{n_{4\mu m}^{2} n_{2\mu m}}
 }{
-  \frac{d_{1.046\mu m}^{2}\omega_{1.046\mu m}^{2}}{n_{1.046\mu m}^{2} n_{0.532\mu m}}
+  \frac{d^{2}\omega_{1.046\mu m}^{2}}{n_{1.046\mu m}^{2} n_{0.532\mu m}}
 } =
-\frac{d_{4\mu m}^{2}}{d_{1.046\mu m}^{2}} 
 \frac{\omega_{4\mu m}^{2}}{\omega_{1.046\mu m}^{2}} 
 \frac{n_{1.046\mu m}^{2} n_{0.532\mu m}}{n_{4\mu m}^{2} n_{2\mu m}}$$
 * Q4
+Back to the question. Assume $n(\omega)$ has two resonances. 
+$$ n^{2}(\omega) = \frac{A_{1}}{\omega^{2}_{1}-\omega} + \frac{A_{1}}{\omega^{2}_{2}-\omega} $$
+Using the hint.
+$$
+n^{2}(\omega) =  \frac{A\lambda_{1}^{2}}{(2\pi c)^{2}} + \frac{A\lambda_{2}^{2}}{(2\pi c)^{2}} +
+\frac{A\lambda_{1}^{4}}{(2\pi c)^{2}} \frac{1}{\lambda^{2}-\lambda_{1}^{2}} +
+\frac{A\lambda_{2}^{4}}{(2\pi c)^{2}} \frac{1}{\lambda^{2}-\lambda_{2}^{2}}
+$$
+And we got the same functional relation as in Q2.
+
 first we will find the relation in hint c. 
 $$ \frac{A}{\omega^{2}_{0}-\omega} = 
 \frac{A}{(\frac{2\pi c}{\lambda_{0}})^{2}- (\frac{2\pi c}{\lambda})^{2}} =
@@ -146,16 +155,6 @@ $$
 yields, 
 $$ B = \frac{A\lambda_{0}^{2}}{(2\pi c)^{2}} $$
 $$ D = \frac{A\lambda_{0}^{4}}{(2\pi c)^{2}} $$
-
-Back to the question. Assume $n(w)$ has two resonances. 
-$$ n(w) = \frac{A_{1}}{\omega^{2}_{1}-\omega} + \frac{A_{1}}{\omega^{2}_{2}-\omega} $$
-Using the hint.
-$$
-n(w) =  \frac{A\lambda_{1}^{2}}{(2\pi c)^{2}} + \frac{A\lambda_{2}^{2}}{(2\pi c)^{2}} +
-\frac{A\lambda_{1}^{4}}{(2\pi c)^{2}} \frac{1}{\lambda^{2}-\lambda_{1}^{2}} +
-\frac{A\lambda_{2}^{4}}{(2\pi c)^{2}} \frac{1}{\lambda^{2}-\lambda_{2}^{2}}
-$$
-And we got the same functional relation as in Q2.
 * Q5
 ** a 
 For the non-critical phase matching $\theta = 0$ or $\theta = \frac{\pi}{2}$. 
